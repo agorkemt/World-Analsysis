@@ -1,0 +1,11 @@
+tp-about-world-energy-food-and-population-datasets
+analysis-general
+chart-energy-per-source
+chart-energy-per-type
+chart-world-food-production
+chart-evolution-of-world-population
+analysis-per-continent
+chart-energy-per-source-per-continent
+chart-energy-per-type-per-continent
+chart-world-food-production-per-continent
+chart-evolution-of-world-population-per-continent

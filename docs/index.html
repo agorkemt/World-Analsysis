@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>World Analysis on Energy, Food and Population</title>
+  <meta name="description" content="An analysis about the energy production bases on which energy source or type, food production increase in time and population increase since 1950" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="World Analysis on Energy, Food and Population" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="An analysis about the energy production bases on which energy source or type, food production increase in time and population increase since 1950" />
+  <meta name="github-repo" content="openscapes/series" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="World Analysis on Energy, Food and Population" />
+  
+  <meta name="twitter:description" content="An analysis about the energy production bases on which energy source or type, food production increase in time and population increase since 1950" />
+  
+
+<meta name="author" content="Gorkem Tunc" />
+
+
+<meta name="date" content="2022-06-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/style.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/lesson.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Mini Bookdown Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="#tp-about-world-energy-food-and-population-datasets"><i class="fa fa-check"></i><b>1</b> TP about World Energy, Food and Population Datasets</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="#analysis-general"><i class="fa fa-check"></i><b>1.1</b> Analysis General</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="#chart-energy-per-source"><i class="fa fa-check"></i><b>1.1.1</b> Chart Energy per Source</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="#chart-energy-per-type"><i class="fa fa-check"></i><b>1.1.2</b> Chart Energy per Type</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="#chart-world-food-production"><i class="fa fa-check"></i><b>1.1.3</b> Chart World Food Production</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="#chart-evolution-of-world-population"><i class="fa fa-check"></i><b>1.1.4</b> Chart Evolution of World Population</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="#analysis-per-continent"><i class="fa fa-check"></i><b>1.2</b> Analysis Per Continent</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="#chart-energy-per-source-per-continent"><i class="fa fa-check"></i><b>1.2.1</b> Chart Energy per Source per Continent</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="#chart-energy-per-type-per-continent"><i class="fa fa-check"></i><b>1.2.2</b> Chart Energy per Type per Continent</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="#chart-world-food-production-per-continent"><i class="fa fa-check"></i><b>1.2.3</b> Chart World Food Production per Continent</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="#chart-evolution-of-world-population-per-continent"><i class="fa fa-check"></i><b>1.2.4</b> Chart Evolution of World Population per Continent</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">World Analysis on Energy, Food and Population</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">World Analysis on Energy, Food and Population</h1>
+<p class="author"><em>Gorkem Tunc</em></p>
+<p class="date"><em>2022-06-24</em></p>
+</div>
+<div id="tp-about-world-energy-food-and-population-datasets" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> TP about World Energy, Food and Population Datasets<a href="#tp-about-world-energy-food-and-population-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="analysis-general" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Analysis General<a href="#analysis-general" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="chart-energy-per-source" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Chart Energy per Source<a href="#chart-energy-per-source" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="series_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="chart-energy-per-type" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Chart Energy per Type<a href="#chart-energy-per-type" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="series_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="chart-world-food-production" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Chart World Food Production<a href="#chart-world-food-production" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="series_files/figure-html/unnamed-chunk-3-1.png" width="1920" /></p>
+</div>
+<div id="chart-evolution-of-world-population" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Chart Evolution of World Population<a href="#chart-evolution-of-world-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="series_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+</div>
+<div id="analysis-per-continent" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Analysis Per Continent<a href="#analysis-per-continent" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="chart-energy-per-source-per-continent" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Chart Energy per Source per Continent<a href="#chart-energy-per-source-per-continent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="series_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="chart-energy-per-type-per-continent" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Chart Energy per Type per Continent<a href="#chart-energy-per-type-per-continent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="series_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="chart-world-food-production-per-continent" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Chart World Food Production per Continent<a href="#chart-world-food-production-per-continent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="series_files/figure-html/unnamed-chunk-7-1.png" width="1920" /></p>
+</div>
+<div id="chart-evolution-of-world-population-per-continent" class="section level3 hasAnchor" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Chart Evolution of World Population per Continent<a href="#chart-evolution-of-world-population-per-continent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="series_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<iframe src="https://gorkemtunc.shinyapps.io/Shiny_Web_App/?showcase=0" width="672" height="400px" data-external="1">
+</iframe>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jules32/bookdown-tutorial/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["series.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
