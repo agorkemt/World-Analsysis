@@ -1,0 +1,230 @@
+--- 
+title: "World Analysis on Energy, Food and Population"
+author: "Gorkem Tunc"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: openscapes/series
+description: "An analysis about the energy production bases on which energy source or type, food production increase in time and population increase since 1950"
+---
+
+# TP about World Energy, Food and Population Datasets
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(tidyverse)
+library(lubridate)
+library(readxl)
+library(tidyselect)
+
+setwd("C:/Users/gorke/Desktop/CEFIM_formation/Data_Analyst/R_Studio/Seq_TP")
+
+```
+
+
+## Analysis General
+
+### Chart Energy per Source
+
+```{r}
+
+energy_source <- read_delim("energy_source.csv") |> 
+  filter(country=="World")|> 
+  filter(type_energie!="primary_energy_consumption",
+         type_energie!="fossil_fuel_consumption",
+         type_energie!="low_carbon_consumption",
+         type_energie!="renewables_consumption",
+         type_energie!="other_renewable_consumption")
+
+ggplot(energy_source)+ 
+  aes(year,consommation,fill=type_energie)+
+  geom_col()
+
+```
+
+### Chart Energy per Type
+
+```{r}
+
+energy_type <- read_delim("energy_type.csv") |> 
+  filter(country=="World")|> 
+  filter(type_energie=="fossil_fuel_consumption"|
+         type_energie=="low_carbon_consumption"|
+         type_energie=="renewables_consumption"|
+         type_energie=="other_renewable_consumption") 
+
+ggplot(energy_type)+ 
+  aes(year,consommation,colour=type_energie)+
+  geom_line()+
+  geom_col(aes(fill=type_energie))
+
+
+
+```
+
+
+### Chart World Food Production
+
+```{r fig.width=20}
+
+production_world <- read_delim("production_world.csv") |> 
+  filter(Area=="World", 
+         Element=="Production") |> 
+  filter(str_detect(Item,"Total")|str_detect(Item,"Primary"))
+
+ggplot(production_world)+
+  aes(annee,valeur,colour=Item)+
+  geom_point()+
+  geom_line()
+
+```
+
+### Chart Evolution of World Population
+
+```{r}
+
+population_world_total <- read_delim("population_world_total.csv") |> 
+  filter(Type=="World") # filtering to get only the world data
+
+ggplot(population_world_total)+
+  aes(annee,population)+
+  geom_point()+
+  geom_line(aes(group=1))+
+  scale_y_continuous(labels=function(x) {
+    format(x,scientific=FALSE,
+           big.mark=" ")
+  })
+
+```
+
+
+## Analysis Per Continent
+
+### Chart Energy per Source per Continent
+
+```{r}
+
+energy_continent_g1 <- read_delim("energy_countrycode.csv") |> 
+  filter(!is.na(continent))|> 
+  filter(year >= 1950) |> 
+  filter(type_energie!="primary_energy_consumption",
+         type_energie!="fossil_fuel_consumption",
+         type_energie!="low_carbon_consumption",
+         type_energie!="renewables_consumption",
+         type_energie!="other_renewable_consumption") |> 
+  group_by(year,continent,type_energie) |> 
+  summarise(consommation_sum_type=sum(consommation,na.rm = TRUE))
+
+ggplot(energy_continent_g1)+ 
+  aes(year,consommation_sum_type,fill=type_energie)+
+  geom_col()+
+  facet_grid(~continent)+
+  theme(axis.text.x=element_text(size=6,
+                                 angle=45,
+                                 hjust=1,
+                                 vjust=1))
+```
+
+### Chart Energy per Type per Continent
+
+```{r}
+
+energy_continent_g2 <- read_delim("energy_countrycode.csv") |> 
+  filter(!is.na(continent))|> 
+  filter(year >= 1950) |> 
+  filter(type_energie=="fossil_fuel_consumption"|
+         type_energie=="low_carbon_consumption"|
+         type_energie=="renewables_consumption"|
+         type_energie=="other_renewable_consumption") |> 
+  group_by(year,continent,type_energie) |> 
+  summarise(consommation_sum_source=sum(consommation,na.rm = TRUE))
+
+ggplot(energy_continent_g2)+
+  aes(year,consommation_sum_source,colour=type_energie)+
+  geom_line()+
+  geom_col(aes(fill=type_energie))+
+  facet_grid(~continent)+
+  theme(axis.text.x=element_text(size=6,
+                                 angle=45,
+                                 hjust=1,
+                                 vjust=1))
+
+
+```
+
+
+### Chart World Food Production per Continent
+
+```{r fig.width=20}
+
+production_continent <- read_delim("food_countrycode.csv") |> 
+  filter(!is.na(Continent)) |> 
+  filter(Element=="Production") |> 
+  filter(str_detect(Item,"Total")|str_detect(Item,"Primary")) |> 
+  group_by(Continent,annee) |> 
+  summarise(continent_sum_food=sum(valeur,na.rm = TRUE))
+
+
+ggplot(production_continent)+
+  aes(annee,continent_sum_food,colour=Continent)+
+  geom_point()+
+  geom_line()+
+  facet_grid(~Continent)+
+  theme(axis.text.x=element_text(size=6,
+                                 angle=45,
+                                 hjust=1,
+                                 vjust=1))+
+  scale_y_continuous(labels=function(x) {
+    format(x,scientific=FALSE,
+           big.mark=" ")
+  })
+
+```
+
+### Chart Evolution of World Population per Continent
+
+```{r}
+
+population_continent <- read_delim("population_countrycode.csv") |> 
+  filter(!is.na(Continent)) |> 
+  group_by(Continent,annee) |> 
+  summarise(continent_sum_pop=sum(population,na.rm = TRUE))
+  
+ggplot(population_continent)+
+  aes(annee,continent_sum_pop,fill=Continent)+
+  geom_col()+
+  geom_line(aes(group=Continent))+
+  scale_y_continuous(labels=function(x) {
+    format(x,scientific=FALSE,
+           big.mark=" ")
+  })+
+  facet_grid(~Continent)+
+  theme(axis.text.x=element_text(size=6,
+                                 angle=90,
+                                 hjust=1,
+                                 vjust=1))
+
+```
+
+```{r}
+
+knitr::include_app("https://gorkemtunc.shinyapps.io/Shiny_Web_App/")
+
+
+
+```
+
+
+
+
+
+
